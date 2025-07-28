@@ -1,5 +1,5 @@
 # 针对部分网站显示IP归属地的分流规则
-# anti-ip-attribution rule-set-direct.list v0.3.1 43b2a72922a327297bb678fb96333b03b2b2f790
+# anti-ip-attribution rule-set-direct.list v0.3.1 ddc91b125dee2a9a00b3847d48f8cffad451a40a
 # https://github.com/SunsetMkt/anti-ip-attribution
 # 适用于Clash RULE-SET
 DOMAIN-SUFFIX,bilivideo.com
