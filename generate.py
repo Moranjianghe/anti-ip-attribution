@@ -81,13 +81,14 @@ def yaml_list(rules):
     ret = []
     for rule in rules:
         seprated = seprate_comma(rule)
-        # if rule.startswith('IP-CIDR'):
-        #     # 'IP-CIDR,203.107.1.0/24,REJECT,no-resolve'
-        #     del seprated[2]
-        # else:
-        #     # 'DOMAIN-SUFFIX,zijieapi.com,DIRECT'
-        #     seprated.pop()
-        del seprated[2]
+        # 移除策略後綴，但保留 no-resolve
+        if len(seprated) >= 3:
+            # 檢查是否有策略後綴（DIRECT、REJECT等）
+            policy_suffixes = ["DIRECT", "REJECT"]
+            if seprated[2] in policy_suffixes:
+                # 如果第3個元素是策略後綴，移除它
+                seprated = seprated[:2] + seprated[3:]  # 保留前2個和第4個之後的元素
+            # 如果第3個元素不是策略後綴（如 no-resolve），則保留所有元素
         ret.append(",".join(seprated))
     return ret
 
@@ -217,7 +218,7 @@ def generate_rule_provider(config):
     # Summary of rules
     print("生成rule-provider.yaml")
     output = {}
-    output["payload"] = yaml_list(rules)
+    output["payload"] = rules
     output = comment + get_yaml_string(output)
     save_string(output, os.path.join("generated", "rule-provider.yaml"))
 

@@ -1,5 +1,5 @@
 # 针对部分网站显示IP归属地的分流规则
-# anti-ip-attribution rule-set-proxy.list v0.3.1 d4a828fd5aa22dfc4368311ab0846d3349b8409d
+# anti-ip-attribution rule-set-proxy.list v0.3.1 43b2a72922a327297bb678fb96333b03b2b2f790
 # https://github.com/SunsetMkt/anti-ip-attribution
 # 适用于Clash RULE-SET
 DOMAIN-SUFFIX,biliapi.net
