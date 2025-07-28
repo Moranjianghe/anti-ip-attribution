@@ -4,6 +4,8 @@
 
 项目作者无法保证配置文件一定能起到作用，有可能会触发账号风控。
 
+本分支修改了 `generate.py` ，去除了 `generated\rule-provider-proxy.yaml` `generated\rule-provider-reject.yaml` 中的 `reject` 或者 `direct` 后缀，在使用时可以实现更复杂的分流规则。
+
 ## 使用之前
 
 请在使用前详细阅读`rules.yaml`内容，内部注释包含部分可选规则，请酌情参考。
