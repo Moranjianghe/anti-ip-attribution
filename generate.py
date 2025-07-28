@@ -217,7 +217,7 @@ def generate_rule_provider(config):
     # Summary of rules
     print("生成rule-provider.yaml")
     output = {}
-    output["payload"] = rules
+    output["payload"] = yaml_list(rules)
     output = comment + get_yaml_string(output)
     save_string(output, os.path.join("generated", "rule-provider.yaml"))
 
@@ -249,7 +249,7 @@ def generate_rule_provider(config):
         "适用于Clash的Rule Provider功能，详见https://lancellc.gitbook.io/clash/clash-config-file/rule-provider",
     )
     output = {}
-    output["payload"] = direct
+    output["payload"] = yaml_list(direct)
     output = comment + get_yaml_string(output)
     save_string(output, os.path.join("generated", "rule-provider-direct.yaml"))
     # Proxy rules
@@ -260,7 +260,7 @@ def generate_rule_provider(config):
         "适用于Clash的Rule Provider功能，详见https://lancellc.gitbook.io/clash/clash-config-file/rule-provider",
     )
     output = {}
-    output["payload"] = proxy
+    output["payload"] = yaml_list(proxy)
     output = comment + get_yaml_string(output)
     save_string(output, os.path.join("generated", "rule-provider-proxy.yaml"))
     # Reject rules
@@ -271,7 +271,7 @@ def generate_rule_provider(config):
         "适用于Clash的Rule Provider功能，详见https://lancellc.gitbook.io/clash/clash-config-file/rule-provider",
     )
     output = {}
-    output["payload"] = reject
+    output["payload"] = yaml_list(reject)
     output = comment + get_yaml_string(output)
     save_string(output, os.path.join("generated", "rule-provider-reject.yaml"))
 
